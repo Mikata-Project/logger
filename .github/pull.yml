@@ -1,0 +1,8 @@
+version: "1"
+rules:
+  - base: master
+    upstream: daroczig:master
+    mergeMethod: hardreset
+  - base: gh-pages
+    upstream: daroczig:gh-pages
+    mergeMethod: hardreset
