@@ -43,7 +43,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -137,7 +137,7 @@
 <span class="va">vector_lg</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/pkg/logging/man/logging-entrypoints.html" class="external-link">loginfo</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">'hi'</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>
 <span class="va">vector_lr</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu"><a href="../reference/log_level.html">log_info</a></span><span class="op">(</span><span class="st">'hi {1:5}'</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html" class="external-link">microbenchmark</a></span><span class="op">(</span>
+<span class="fu">microbenchmark</span><span class="op">(</span>
     <span class="fu">string_fl</span><span class="op">(</span><span class="op">)</span>, <span class="fu">string_lg</span><span class="op">(</span><span class="op">)</span>, <span class="fu">string_lr</span><span class="op">(</span><span class="op">)</span>,
     <span class="fu">vector_fl</span><span class="op">(</span><span class="op">)</span>, <span class="fu">vector_lg</span><span class="op">(</span><span class="op">)</span>, <span class="fu">vector_lr</span><span class="op">(</span><span class="op">)</span>,
     <span class="fu">dynamic_fl</span><span class="op">(</span><span class="op">)</span>, <span class="fu">dynamic_lg</span><span class="op">(</span><span class="op">)</span>, <span class="fu">dynamic_lr</span><span class="op">(</span><span class="op">)</span>,
@@ -168,7 +168,7 @@
 <span class="va">dynamic</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu"><a href="../reference/log_level.html">log_info</a></span><span class="op">(</span><span class="st">'hi %s'</span>, <span class="fl">42</span><span class="op">)</span>
 <span class="va">vector</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu"><a href="../reference/log_level.html">log_info</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">'hi'</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html" class="external-link">microbenchmark</a></span><span class="op">(</span><span class="fu">string</span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu">dynamic</span><span class="op">(</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">1e3</span><span class="op">)</span>
+<span class="fu">microbenchmark</span><span class="op">(</span><span class="fu">string</span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu">dynamic</span><span class="op">(</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">1e3</span><span class="op">)</span>
 <span class="co">#&gt; Unit: microseconds</span>
 <span class="co">#&gt;       expr     min       lq     mean   median       uq      max neval cld</span>
 <span class="co">#&gt;   string() 110.192 118.4850 148.5848 137.1825 152.7275 1312.903  1000  a</span>
@@ -190,7 +190,7 @@
 <span class="fu"><a href="../reference/log_appender.html">log_appender</a></span><span class="op">(</span><span class="fu"><a href="../reference/appender_async.html">appender_async</a></span><span class="op">(</span><span class="fu">appender_file_slow</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">async</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu"><a href="../reference/log_level.html">log_info</a></span><span class="op">(</span><span class="st">'Was this slow?'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/microbenchmark/man/microbenchmark.html" class="external-link">microbenchmark</a></span><span class="op">(</span><span class="fu">async</span><span class="op">(</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">1e3</span><span class="op">)</span>
+<span class="fu">microbenchmark</span><span class="op">(</span><span class="fu">async</span><span class="op">(</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">1e3</span><span class="op">)</span>
 <span class="co">#&gt; Unit: microseconds</span>
 <span class="co">#&gt;     expr     min      lq     mean   median     uq      max neval</span>
 <span class="co">#&gt;  async() 511.329 528.247 614.8694 558.2535 616.14 5018.731  1000</span></code></pre></div>
@@ -212,7 +212,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
